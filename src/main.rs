@@ -19,7 +19,7 @@ impl Default for Config {
     fn default() -> Self {
         Self {
             ip: "0.0.0.0".to_string(),
-            name: "edge".to_string(),
+            name: "node".to_string(),
             port: 80,
             thread_num: 8,
             log_level: "INFO".to_string(),
