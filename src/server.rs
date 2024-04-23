@@ -66,7 +66,7 @@ impl Server {
         start_task_v(
             self.moon_server_v.clone(),
             self.name.clone(),
-            self.name.clone(),
+            format!("/{}/", self.name),
             self.port,
         )
         .await?;
