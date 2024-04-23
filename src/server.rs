@@ -12,8 +12,8 @@ async fn serve(ip: &str, port: u16, name: &str) -> io::Result<()> {
     // build our application with a route
     let app = Router::new()
         .route(
-            &format!("/{}/execute", name),
-            routing::post(service::http_index),
+            &format!("/{}/", name),
+            routing::get(service::http_index),
         )
         .with_state(Arc::new(state::ServerState {}));
 
