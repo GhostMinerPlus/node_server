@@ -5,6 +5,7 @@ use serde::{Deserialize, Serialize};
 
 mod state;
 mod server;
+mod star;
 
 #[derive(Debug, Deserialize, Serialize, Clone, AsConfig)]
 struct Config {
@@ -13,6 +14,7 @@ struct Config {
     port: u16,
     thread_num: u8,
     log_level: String,
+    moon_servers: Vec<String>,
 }
 
 impl Default for Config {
@@ -23,6 +25,7 @@ impl Default for Config {
             port: 80,
             thread_num: 8,
             log_level: "INFO".to_string(),
+            moon_servers: Vec::new(),
         }
     }
 }
@@ -49,5 +52,5 @@ fn main() -> io::Result<()> {
         .enable_all()
         .worker_threads(config.thread_num as usize)
         .build()?
-        .block_on(server::Server::new(config.ip, config.port, config.name).run())
+        .block_on(server::Server::new(config.ip, config.port, config.name, config.moon_servers).run())
 }
