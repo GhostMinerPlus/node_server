@@ -410,6 +410,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "edge_lib"
+version = "0.1.0"
+source = "git+https://github.com/GhostMinerPlus/edge_lib.git#ab6671652e912da8b2b433692e644a68b00ddb6d"
+dependencies = [
+ "async-recursion",
+ "json",
+ "log",
+ "rand",
+ "serde",
+ "tokio",
+ "uuid",
+]
+
+[[package]]
 name = "either"
 version = "1.11.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1102,6 +1116,7 @@ dependencies = [
  "async-recursion",
  "axum",
  "earth",
+ "edge_lib",
  "env_logger",
  "json",
  "log",
@@ -2559,6 +2574,9 @@ name = "uuid"
 version = "1.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a183cf7feeba97b4dd1c0d46788634f6221d87fa961b305bed08c851829efcc0"
+dependencies = [
+ "getrandom",
+]
 
 [[package]]
 name = "vcpkg"

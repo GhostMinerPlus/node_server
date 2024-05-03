@@ -20,3 +20,4 @@ toml = "0.8.8"
 earth = { git = "https://github.com/GhostMinerPlus/earth.git"  }
 rand = "0.8.5"
 pnet = "0.34.0"
+edge_lib = { git = "https://github.com/GhostMinerPlus/edge_lib.git" }
