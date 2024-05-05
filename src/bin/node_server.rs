@@ -3,11 +3,8 @@
 use std::{io, time::Duration};
 
 use earth::AsConfig;
-use edge_lib::{
-    data::{AsDataManager, DataManager},
-    AsEdgeEngine, EdgeEngine,
-};
-use node_server::server;
+use edge_lib::{data::AsDataManager, AsEdgeEngine, EdgeEngine};
+use node_server::{data::DataManager, server};
 use tokio::time;
 
 // Public
@@ -82,10 +79,8 @@ fn main() -> io::Result<()> {
                 .unwrap_or(String::new());
             edge_engine
                 .execute(
-                    &json::parse(&format!(
-                        "{{\"{base_script}\\n{option_script}\": null}}"
-                    ))
-                    .unwrap(),
+                    &json::parse(&format!("{{\"{base_script}\\n{option_script}\": null}}"))
+                        .unwrap(),
                 )
                 .await?;
             edge_engine.commit().await?;
